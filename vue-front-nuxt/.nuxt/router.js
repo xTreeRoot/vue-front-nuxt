@@ -4,7 +4,11 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _1bf3de56 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _788d290b = () => interopDefault(import('../pages/course/index.vue' /* webpackChunkName: "pages/course/index" */))
+const _1b352b88 = () => interopDefault(import('../pages/teacher/index.vue' /* webpackChunkName: "pages/teacher/index" */))
+const _c2501b9a = () => interopDefault(import('../pages/course/_id.vue' /* webpackChunkName: "pages/course/_id" */))
+const _33a86ff0 = () => interopDefault(import('../pages/teacher/_id.vue' /* webpackChunkName: "pages/teacher/_id" */))
+const _1d8e6f16 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -18,8 +22,24 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/course",
+    component: _788d290b,
+    name: "course"
+  }, {
+    path: "/teacher",
+    component: _1b352b88,
+    name: "teacher"
+  }, {
+    path: "/course/:id",
+    component: _c2501b9a,
+    name: "course-id"
+  }, {
+    path: "/teacher/:id",
+    component: _33a86ff0,
+    name: "teacher-id"
+  }, {
     path: "/",
-    component: _1bf3de56,
+    component: _1d8e6f16,
     name: "index"
   }],
 
