@@ -3,30 +3,35 @@
     "name": "course",
     "path": "/course",
     "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/course/index.vue",
-    "chunkName": "pages/course/index"
+    "chunkName": "pages/course/index",
+    "_name": "_788d290b"
   },
   {
     "name": "teacher",
     "path": "/teacher",
     "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/teacher/index.vue",
-    "chunkName": "pages/teacher/index"
+    "chunkName": "pages/teacher/index",
+    "_name": "_1b352b88"
   },
   {
     "name": "course-id",
     "path": "/course/:id",
     "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/course/_id.vue",
-    "chunkName": "pages/course/_id"
+    "chunkName": "pages/course/_id",
+    "_name": "_c2501b9a"
   },
   {
     "name": "teacher-id",
     "path": "/teacher/:id",
     "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/teacher/_id.vue",
-    "chunkName": "pages/teacher/_id"
+    "chunkName": "pages/teacher/_id",
+    "_name": "_33a86ff0"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_1d8e6f16"
   }
 ]
