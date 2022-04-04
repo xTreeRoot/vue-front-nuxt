@@ -17,12 +17,12 @@
           <!-- / nav -->
           <ul class="h-r-login">
             <li id="no-login">
-              <a href="/sing_in" title="登录">
+              <a href="/login" title="登录">
                 <em class="icon18 login-icon">&nbsp;</em>
                 <span class="vam ml5">登录</span>
               </a>
               |
-              <a href="/sign_up" title="注册"><span class="vam ml5">注册</span></a>
+              <a href="/register" title="注册"><span class="vam ml5">注册</span></a>
             </li>
             <li id="is-login-one" class="mr10 undis">
               <a id="headerMsgCountId" href="#" title="消息"><em class="icon18 news-icon">&nbsp;</em></a>
