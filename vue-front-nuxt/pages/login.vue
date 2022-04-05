@@ -1,21 +1,19 @@
 <template>
-  <div className="main">
-    <div className="title">
-      <a className="active" href="/login">登录</a>
+  <div class="main">
+    <div class="title">
+      <a class="active" href="/login">登录</a>
       <span>·</span>
       <a href="/register">注册</a>
     </div>
-    <div className="sign-up-container">
+    <div class="sign-up-container">
       <el-form ref="userForm" :model="user">
         <el-form-item
           :rules="[{
-            required: true, message: '请输入手机号码', trigger: 'blur' },{validator:
-          checkPhone, trigger: 'blur'}]"
-          class-name="input-prepend restyle"
+          required: true, message: '请输入手机号码', trigger: 'blur' },{validator: checkPhone, trigger: 'blur'}]"
+          class="input-prepend restyle"
           prop="mobile">
-          <div>
-            <el-input v-model="user.mobile" type="text" placeholder="手机号"/>
-            <i class="iconfont icon-phone"/>
+          <div >
+            <el-input v-model="user.mobile" type="text" placeholder="手机号"/><i class="iconfont icon-phone" />
           </div>
         </el-form-item>
         <el-form-item
@@ -45,22 +43,27 @@
             class="weixin"
             target="_blank"
             href="http://qy.free.idcfengye.com/api/ucenter/weixinLogin/login"><i
-              class="iconfont icon-weixin"/></a></li>
-          <li><a id="qq" class="qq" target="_blank" href="#"><i
-            class="iconfont
-icon-qq"/></a></li>
+              class="iconfont icon-weixin"/>
+          </a>
+          </li>
+          <li><a id="qq" class="qq" target="_blank" href="#">
+          <i class="iconfont icon-qq"/></a></li>
         </ul>
       </div>
     </div>
   </div>
 </template>
-<script>import '~/assets/css/sign.css'
+<script>
+import '~/assets/css/sign.css'
 import '~/assets/css/iconfont.css'
+import cookie from 'js-cookie'
+import loginApi from '~/api/login'
 
 export default {
   layout: 'sign',
   data() {
     return {
+      // 封装手机号与密码
       user: {
         mobile: '',
         password: ''
@@ -69,6 +72,30 @@ export default {
     }
   },
   methods: {
+    submitLogin() {
+      // 第一步 调用接口进行登录 返回token字符串
+      loginApi.submitLoginUser(this.user)
+        .then(response => {
+        // 获取token字符串 放到cookie里面
+        // 第一个参数是cookie自定义名称 第二个是参数值 第三个是参数作用范围
+          cookie.set('guli_token', response.data.data.token, { domain: 'localhost' })
+          // 调用接口获取token有无用户信息,为了首页显示
+        })
+      loginApi.getLoginUserInfo()
+        .then(response => {
+          this.loginInfo = response.data.data.userInf
+          alert(this.loginInfo)
+          cookie.set('guli_ucenter', this.loginInfo, { domain: 'localhost' })
+          // 跳转页面
+          window.location.href = '/'
+        })
+    }, checkPhone(rule, value, callback) {
+      // debugger
+      if (!(/^1[34578]\d{9}$/.test(value))) {
+        return callback(new Error('手机号码格式不正确'))
+      }
+      return callback()
+    }
 
   }
 }

@@ -9,7 +9,7 @@ export default {
     })
   },
   // 注册
-  registerMember(formItem) {
+  registerMemberx(formItem) {
     return request({
       url: `/educenter/member/register`,
       method: 'post',
