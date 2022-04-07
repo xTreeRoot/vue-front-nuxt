@@ -120,7 +120,7 @@ export default {
         age: '',
         avatar: 'https://gitee.com/xu-genyin/photo-bed/raw/master/xuxian-1646980064060.jpg-55cee0771f8c40e9.jpg',
         mobile: '',
-        nickname: '死数据',
+        nickname: '我是死数据',
         sex: ''
       },
       result: {}
@@ -131,7 +131,7 @@ export default {
   },
   methods: {
     showInfo() {
-      console.log('用户登录的token在这里' + cookie.get('guli_token'))
+      // console.log('用户登录的token在这里' + cookie.get('guli_token'))
       //  从cookie中获取信息
       const userStr = cookie.get('guli_ucenter')
       //  把字符串转换成接送对象
