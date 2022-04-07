@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export default {
   // 分也讲师查询
-  getTeacherLsit(page, limit) {
+  getTeacherList(page, limit) {
     return request({
       url: `/eduservice/teacherFront/getTeacherFrontList/${page}/${limit}`,
       method: 'post'
@@ -15,9 +15,9 @@ export default {
       method: 'get'
     })
   },
-  getTeacherInfo(teacherId) {
+  getTeacherInfo(id) {
     return request({
-      url: `/eduservice/teacherFront/getTeacherFrontInfo/${teacherId}`,
+      url: `/eduservice/teacherFront/getTeacherFrontInfo/${id}`,
       method: 'get'
     })
   }
