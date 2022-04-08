@@ -30,6 +30,12 @@
     "chunkName": "pages/course/_id"
   },
   {
+    "name": "player-vid",
+    "path": "/player/:vid?",
+    "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/player/_vid.vue",
+    "chunkName": "pages/player/_vid"
+  },
+  {
     "name": "teacher-id",
     "path": "/teacher/:id",
     "component": "/Users/xugenyin/Desktop/vue-front-nuxt/vue-front-nuxt/vue-front-nuxt/pages/teacher/_id.vue",
