@@ -22,5 +22,13 @@ export default {
       url: `/eduservice/teacherFront/getTeacherFrontInfo/${teacherId}`,
       method: 'get'
     })
+  },
+  //  课程详情
+  getCourseInfo(courseId) {
+    return request({
+      url: `/eduservice/coursefront/getFrontCourseInfo/${courseId}`,
+      method: 'get'
+    })
   }
+
 }
