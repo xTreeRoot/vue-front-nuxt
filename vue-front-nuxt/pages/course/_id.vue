@@ -12,7 +12,7 @@
       <div>
         <article class="c-v-pic-wrap" style="height: 357px;">
           <section id="videoPlay" class="p-h-video-box">
-            <img :src="courseWebVo.cover" :alt="courseWebVo.title" class="dis c-v-pic">
+            <img :src="courseWebVo.cover" :alt="courseWebVo.title" height="357px" class="dis c-v-pic">
           </section>
         </article>
         <aside class="c-attr-wrap">
