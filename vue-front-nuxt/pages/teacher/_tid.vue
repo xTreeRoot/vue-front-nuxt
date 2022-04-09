@@ -53,8 +53,8 @@
             <ul class="of">
               <li v-for="course in courseList" :key="course.id">
                 <div class="cc-l-wrap">
-                  <section class="course-img">
-                    <img :src="course.cover" >
+                  <section class="course-img" >
+                    <img :src="course.cover" width="100%" >
                     <div class="cc-mask">
                       <a href="#" title="开始学习" target="_blank" class="comm-btn c-btn-1">开始学习</a>
                     </div>
@@ -79,7 +79,7 @@ export default {
   asyncData({ params, erros }) {
     // params: 相当于之前 this.$route.params.id 等价  params. id
     // params. id获取路径id值
-    return teacherApi.getTeacherInfo(params.id)
+    return teacherApi.getTeacherInfo(params.tid)
       .then(response => {
         return {
           teacher: response.data.data.teacher,

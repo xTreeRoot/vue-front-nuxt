@@ -110,17 +110,28 @@ import '~/assets/css/reset.css'
 import '~/assets/css/theme.css'
 import '~/assets/css/global.css'
 import '~/assets/css/web.css'
+import '~/assets/css/base.css'
+import '~/assets/css/activity_tab.css'
+import '~/assets/css/bottom_rec.css'
+import '~/assets/css/nice_select.css'
+import '~/assets/css/order.css'
+import '~/assets/css/swiper-3.3.1.min.css'
+import '~/assets/css/pages-weixinpay.css'
+import '~/assets/css/reset.css'
+import '~/assets/css/theme.css'
+import '~/assets/css/global.css'
+import '~/assets/css/web.css'
 import cookie from 'js-cookie'
 export default {
   data() {
     return {
-      token: '',
+      token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJndWxpLXVzZXIiLCJpYXQiOjE2NDk0OTM5NDIsImV4cCI6MTY0OTU4MDM0MiwiaWQiOiIyIiwibmlja25hbWUiOiJ0cmVlUm9vdCJ9.ORRuxk5CmwUf45356uFuLe0KQr1ZKQEaqhza5z__QRA',
       loginInfo: {
         id: '2',
         age: '',
         avatar: 'https://gitee.com/xu-genyin/photo-bed/raw/master/xuxian-1646980064060.jpg-55cee0771f8c40e9.jpg',
         mobile: '',
-        nickname: '我是死数据',
+        nickname: '开发者treeRoot',
         sex: ''
       },
       result: {}
@@ -131,14 +142,14 @@ export default {
   },
   methods: {
     showInfo() {
-      // console.log('用户登录的token在这里' + cookie.get('guli_token'))
+      console.log('用户登录的token在这里' + cookie.get('guli_token'))
       //  从cookie中获取信息
       const userStr = cookie.get('guli_ucenter')
       //  把字符串转换成接送对象
       if (userStr) {
         console.log('从token获取到的数据' + this.loginInfo)
         // this.loginInfo = JSON.parse(userStr)
-        // console.log('从token获取到的数据' + this.loginInfo)
+        console.log('从token获取到的数据' + this.loginInfo)
       }
     }
   }

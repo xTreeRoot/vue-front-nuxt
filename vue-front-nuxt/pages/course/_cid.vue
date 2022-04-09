@@ -30,22 +30,25 @@
             <section class="c-attr-mt of">
               <span class="ml10 vam">
                 <em class="icon18 scIcon"/>
-                <a class="c-fff vam" title="收藏" href="#" >收藏</a>
+                <a class="c-fff vam" title="收藏" href="#">收藏</a>
               </span>
             </section>
-            <section class="c-attr-mt">
-              <a href="#" title="立即观看" class="comm-btn c-btn-3">立即观看</a>
+            <section v-if="Number(courseWebVo.price)===0" class="c-attr-mt">
+              <a href="#" title="立即观看" class="comm-btn c-btn-3" @click="createOrders()">立即观看</a>
+            </section>
+            <section v-else class="c-attr-mt">
+              <a href="#" title="立即购买" class="comm-btn c-btn-3" @click="createOrders()">立即购买</a>
             </section>
           </section>
         </aside>
         <aside class="thr-attr-box">
-          <ol class="thr-attr-ol clearfix">
+          <ol class="thr-attr-ol ">
             <li>
               <p>&nbsp;</p>
               <aside>
                 <span class="c-fff f-fM">购买数</span>
                 <br>
-                <h6 class="c-fff f-fM mt10">{{ courseWebVo.buyCount }}</h6>
+                <h6 class="c-fff f-fM mt10">111{{ courseWebVo.buyCount }}</h6>
               </aside>
             </li>
             <li>
@@ -108,7 +111,7 @@
                             <ol class="lh-menu-ol" style="display: block;">
                               <li v-for="video in chapter.children" :key="video.id" class="lh-menu-second ml30">
                                 <a :href="'/player/'+video.videoSourceId" target="_blank">
-                                  <span v-if="Number(video.isFree)==0" class="fr">
+                                  <span class="fr">
                                     <i class="free-icon vam mr10">免费试听</i>
                                   </span>
                                   <em class="lh-menu-i-2 icon16 mr5">&nbsp;</em>{{ video.title }}
@@ -160,16 +163,30 @@
 </template>
 
 <script>
-import course from '@/api/course'
+import courseApi from '@/api/course'
+import orderApi from '@/api/order'
+
 export default {
   asyncData({ params, error }) {
-    return course.getCourseInfo(params.id)
+    return courseApi.getCourseInfo(params.cid)
       .then(response => {
         return {
           courseWebVo: response.data.data.courseWebVo,
-          chapterVideoList: response.data.data.chapterVideoList
+          chapterVideoList: response.data.data.chapterVideoList,
+          courseId: params.cid
         }
       })
+  }, methods: {
+    //  生成订单
+    createOrders() {
+      orderApi.createOrder(this.courseId)
+        .then(response => {
+          // 返回的订单号
+          response.data.data.orderId
+          //  生成订单号 带着订单信息 带显示页面
+          this.$router.push({ path: '/orders/' + response.data.data.orderId })
+        })
+    }
   }
 }
 </script>

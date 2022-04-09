@@ -80,16 +80,16 @@ export default {
         // 第一个参数是cookie自定义名称 第二个是参数值 第三个是参数作用范围
           cookie.set('guli_token', response.data.data.token, { domain: 'localhost' })
           // 调用接口获取token有无用户信息,为了首页显示
+          loginApi.getLoginUserInfo()
+            .then(response => {
+              this.loginInfo = response.data.data.userInfo
+              cookie.set('guli_ucenter', this.loginInfo, { domain: 'localhost' })
+              // 跳转页面
+              window.location.href = '/'
+            })
         })
-      loginApi.getLoginUserInfo()
-        .then(response => {
-          this.loginInfo = response.data.data.userInf
-          alert(this.loginInfo)
-          cookie.set('guli_ucenter', this.loginInfo, { domain: 'localhost' })
-          // 跳转页面
-          window.location.href = '/'
-        })
-    }, checkPhone(rule, value, callback) {
+    },
+    checkPhone(rule, value, callback) {
       // debugger
       if (!(/^1[34578]\d{9}$/.test(value))) {
         return callback(new Error('手机号码格式不正确'))
