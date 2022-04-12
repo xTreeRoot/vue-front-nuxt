@@ -11,7 +11,7 @@
 
 #### 软件架构
 
-本仓库使用https://gitee.com/xu-genyin/guli-parent/ 作为接口为后端管理系统
+本仓库使用https://gitee.com/xu-genyin/guli-parent/ 作为接口为用户页面
 
 
 #### 安装教程
